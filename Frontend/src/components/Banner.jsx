@@ -5,7 +5,7 @@ const Banner = () => {
     const [timer, setTimer] = useState(0);
 
     useEffect(() => {
-        fetch("https://takeuforwardassignmentbackend.onrender.com/api/v1/banner",{
+        fetch("http://localhost:8080/api/v1/banner",{
             method: "GET",
         })
         .then(res => res.json())
@@ -21,12 +21,15 @@ const Banner = () => {
         return () => clearInterval(interval);
     },[]);
 
+    console.log(bannerData);
+    
+
     if(timer <= 0 || !bannerData.visible) return null;
 
     return (
         <>
             <div className="bg-blue-700 text-white flex justify-center items-center flex-col h-96 gap-3">
-                <p className="text-4xl">{bannerData.description}</p>
+                <p className="text-4xl">{bannerData?.description}</p>
                 {bannerData.link && <a href={bannerData.link} className="underline" target="_blank">click on this link.</a>}
                 <p>Time left: {timer} seconds</p>
             </div>
