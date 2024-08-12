@@ -5,7 +5,7 @@ exports.getBanner = (req, res) => {
         if(err) {
             res.status(500).send(err);
         }
-        res.status(200).json(result);
+        res.status(200).json(result[0]);
     });
 };
 

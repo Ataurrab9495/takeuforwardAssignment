@@ -10,8 +10,12 @@ const Banner = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setBannerData(data[0]);
-            setTimer(data[0].timer);
+            if (data.length > 0) {
+                const banner = data[0];
+                
+                setBannerData(banner);
+                setTimer(banner.timer);
+            }
         })
 
         const interval = setInterval(() => {
@@ -21,15 +25,15 @@ const Banner = () => {
         return () => clearInterval(interval);
     },[]);
 
-    console.log(bannerData);
     
-
-    if(timer <= 0 || !bannerData.visible) return null;
+    
+    console.log(bannerData);
+    /* if(timer <= 0 || !bannerData.visible) return null; */
 
     return (
         <>
             <div className="bg-blue-700 text-white flex justify-center items-center flex-col h-96 gap-3">
-                <p className="text-4xl">{bannerData?.description}</p>
+                <p className="text-4xl">{bannerData.description}</p>
                 {bannerData.link && <a href={bannerData.link} className="underline" target="_blank">click on this link.</a>}
                 <p>Time left: {timer} seconds</p>
             </div>
