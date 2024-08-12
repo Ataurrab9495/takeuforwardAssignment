@@ -9,7 +9,7 @@ const Dashboard = () => {
     });
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/v1/banner')
+        fetch('https://takeuforwardassignmentbackend.onrender.com/api/v1/banner')
         .then(res => res.json())
         .then(data => setBannerData(data));
     },[]);
@@ -33,7 +33,7 @@ const Dashboard = () => {
     const handleSubmit = e => {
         /* e.preventDefault(); */
 
-        fetch("http://localhost:8080/api/v1/banner",{
+        fetch("https://takeuforwardassignmentbackend.onrender.com/api/v1/banner",{
             method: "POST",
             headers:{
                 "content-type": "application/json",

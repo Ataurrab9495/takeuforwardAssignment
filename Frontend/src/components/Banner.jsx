@@ -5,7 +5,7 @@ const Banner = () => {
     const [timer, setTimer] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/v1/banner",{
+        fetch("https://takeuforwardassignmentbackend.onrender.com/api/v1/banner",{
             method: "GET",
         })
         .then(res => res.json())
