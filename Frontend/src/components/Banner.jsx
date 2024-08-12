@@ -10,8 +10,8 @@ const Banner = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setBannerData(data);
-            setTimer(data.timer);
+            setBannerData(data[0]);
+            setTimer(data[0].timer);
         })
 
         const interval = setInterval(() => {

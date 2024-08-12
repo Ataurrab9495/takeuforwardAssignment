@@ -11,7 +11,7 @@ const Dashboard = () => {
     useEffect(() => {
         fetch('https://takeuforwardassignmentbackend.onrender.com/api/v1/banner')
         .then(res => res.json())
-        .then(data => setBannerData(data));
+        .then(data => setBannerData(data[0]));
     },[]);
 
 
